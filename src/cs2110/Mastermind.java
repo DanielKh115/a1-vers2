@@ -7,7 +7,6 @@ import java.util.Scanner;
  * A console-based implementation of the popular Mastermind code-breaking game.
  */
 public class Mastermind {
-
     /**
      * Returns `false` and prints an explanatory message if the given `guess` is not valid,
      * otherwise returns `true`. A guess is not valid if (1) it contains a number of symbols
@@ -18,13 +17,14 @@ public class Mastermind {
      * first illegal symbol. Both messages should end with a newline.
      */
     static boolean isValidGuess(String guess, int codeLength, int alphabetSize) {
-        assert guess != null; // defensive programming for implicit non-null pre-condition
-
-        // TODO 1: Implement this method according to its specifications.
-        throw new UnsupportedOperationException();
+        if (guess.length() != codeLength)
+        {
+            System.out.println("Your guess must have " + codeLength + " symbols. Try again.");
     }
+        for (int i = 0; i < codeLength;  i++){
 
-    /**
+        }
+   /**
      * Returns an `int[2]` array where the value at index 0 is the number of red pegs assigned to
      * the guess and the value at index 1 is the number of white pegs assigned to the guess. Each
      * red peg corresponds to a symbol in the guess that matches the symbol in the same position of
