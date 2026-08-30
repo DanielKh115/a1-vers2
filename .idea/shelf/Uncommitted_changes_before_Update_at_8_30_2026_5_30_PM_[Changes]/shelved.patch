@@ -1,0 +1,69 @@
+Index: src/cs2110/Mastermind.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package cs2110;\r\n\r\nimport java.util.Random;\r\nimport java.util.Scanner;\r\n\r\n/**\r\n * A console-based implementation of the popular Mastermind code-breaking game.\r\n */\r\npublic class Mastermind {\r\n\r\n    /**\r\n     * Returns `false` and prints an explanatory message if the given `guess` is not valid,\r\n     * otherwise returns `true`. A guess is not valid if (1) it contains a number of symbols\r\n     * different from the `codeLength`, in which case \"Your guess must have # symbols. Try again.\"\r\n     * is printed, with # replaced by the `codeLength`, or (2) it contains the correct number of\r\n     * symbols, but one of them is not an allowed digit for the given `alphabetSize`, in which case\r\n     * \"Your guess cannot include the symbol '*'. Try again.\" is printed, with * replaced by the\r\n     * first illegal symbol. Both messages should end with a newline.\r\n     */\r\n    static boolean isValidGuess(String guess, int codeLength, int alphabetSize) {\r\n        assert guess != null; // defensive programming for implicit non-null pre-condition\r\n\r\n        // TODO 1: Implement this method according to its specifications.\r\n        throw new UnsupportedOperationException();\r\n    }\r\n\r\n    /**\r\n     * Returns an `int[2]` array where the value at index 0 is the number of red pegs assigned to\r\n     * the guess and the value at index 1 is the number of white pegs assigned to the guess. Each\r\n     * red peg corresponds to a symbol in the guess that matches the symbol in the same position of\r\n     * the code. Each white peg corresponds to a symbol in the guess that appears in a different\r\n     * position in the code (which has not been paired with a guess symbol corresponding to a\r\n     * different peg). Requires that `guess` and `code` are valid.\r\n     */\r\n    public static int[] pegCounts(String guess, String code) {\r\n        assert guess != null;\r\n        assert code != null;\r\n\r\n        // TODO 3: Implement this method according to its specifications.\r\n        throw new UnsupportedOperationException();\r\n    }\r\n\r\n    /**\r\n     * Prints the key peg output to the console corresponding to the given `pegCounts` array,\r\n     * followed by a newline. The output consists of `codeLength` colored circles, with any red\r\n     * circles followed by any white circles followed by any black circles (indicating the absense\r\n     * of a key peg). Requires that `pegCounts.length == 2` with `pegCounts[0] >= 0`, `pegCounts[1]\r\n     * >= 0`, and `pegCounts[0] + pegCounts[1] <= codeLength`.\r\n     */\r\n    @SuppressWarnings(\"UnnecessaryUnicodeEscape\")\r\n    static void printKeyPegs(int[] pegCounts, int codeLength) {\r\n        System.out.println(\"\\uD83D\\uDD34 \".repeat(pegCounts[0]) // red circles\r\n                + \"\\u26AA \".repeat(pegCounts[1]) // white circles\r\n                + \"\\u26AB \".repeat(codeLength - pegCounts[0] - pegCounts[1]) // black circles\r\n        );\r\n    }\r\n\r\n    /**\r\n     * Simulates a game of Mastermind with the given target `code`, using the given Scanner `sc` to\r\n     * receive guesses from the user. Over the course of the given number of `turns`, the game\r\n     * should prompt the user for a guess with the console output \"#. Enter a guess: \" where # is\r\n     * the current valid guess number (starting from 1) and accept the user's console input by\r\n     * calling `sc.nextLine()`. If the user gives a valid guess, the corresponding key peg output is\r\n     * printed. If the guess matches the code, the game should then print \"Congratulations! You won\r\n     * in # guesses.\" with # replaced by the number of valid guesses, and the method should return.\r\n     * Otherwise, the prompt is made for the next guess. If the user gives an invalid guess (which\r\n     * includes contradictory guesses if `hardMode == true`), then the method should prompt the\r\n     * user for another guess with the same guess number. If the user runs out of guesses, the game\r\n     * should print \"Better luck next time. The code was ****.\", with **** replaced by the `code`.\r\n     * Requires that `code` is a valid for the given `alphabetSize`.\r\n     */\r\n    static void play(Scanner sc, String code, int alphabetSize, int turns, boolean hardMode) {\r\n        // TODO 5: Implement this method according to its specs in the case that `hardMode` is `false`.\r\n        // TODO 6: Modify the definition of this method to account for the case that `hardMode` is\r\n        //  `true`. Your definition should promote maintainability by avoiding duplicate code and\r\n        //  delegating involved computations to at least one helper method.\r\n        throw new UnsupportedOperationException();\r\n    }\r\n\r\n    /**\r\n     * Generates a random code with the given `codeLength` with symbols sampled randomly from the\r\n     * first `alphabetSize` digits.\r\n     */\r\n    static String generateRandomCode(int codeLength, int alphabetSize) {\r\n        StringBuilder code = new StringBuilder();\r\n        Random rand = new Random();\r\n        for (int i = 0; i < codeLength; i++) {\r\n            code.append((char) ('0' + (rand.nextInt(1, alphabetSize + 1) % 10)));\r\n        }\r\n        return code.toString();\r\n    }\r\n\r\n    /**\r\n     * Returns the int value of the given `arg` with the given `name` if it falls within the range\r\n     * `[min,max]`, otherwise prints an error message and terminates the program.\r\n     */\r\n    static int parseArgInBounds(String arg, String name, int min, int max) {\r\n        int val = 0;\r\n        try {\r\n            val = Integer.parseInt(arg);\r\n            if (val < min || val > max) {\r\n                throw new IllegalArgumentException();\r\n            }\r\n        } catch (RuntimeException e) {\r\n            System.err.println(\"Illegal \" + name + \" argument: \" + arg);\r\n            System.exit(1);\r\n        }\r\n        return val;\r\n    }\r\n\r\n    /**\r\n     * Creates a new Mastermind game, generating the code and printing the welcome message before\r\n     * calling the `play()` method to handle the rest of the game logic. Checks for command-line\r\n     * arguments to set the three game parameters: (1) `hardMode` (\"hard\"): true if game requires\r\n     * subsequent guesses to be consistent with previous pegs (default=`false`), (2) `codeLength`\r\n     * (\"l=#\"): the number of symbols in the code (default=4, min=3, max=6), (3) `alphabetSize`\r\n     * (\"a=#\"): the number of possible symbols in each position of the code (default=6, min=4,\r\n     * max=10). Illegal arguments cause an error message to be printed and the program to be\r\n     * terminated.\r\n     */\r\n    @SuppressWarnings(\"ForLoopReplaceableByForEach\")\r\n    public static void main(String[] args) {\r\n        // initialize settings to default values\r\n        boolean hardMode = false;\r\n        int codeLength = 4;\r\n        int alphabetSize = 6;\r\n\r\n        // loop over program arguments to update game settings\r\n        for (int i = 0; i < args.length; i++) {\r\n            if (args[i].equals(\"hard\")) {\r\n                hardMode = true;\r\n            } else if (args[i].startsWith(\"l=\")) {\r\n                codeLength = parseArgInBounds(args[i].substring(2), \"code length\", 3, 6);\r\n            } else if (args[i].startsWith(\"a=\")) {\r\n                alphabetSize = parseArgInBounds(args[i].substring(2), \"alphabet size\", 4, 10);\r\n            } else {\r\n                System.err.println(\"Illegal program argument: \" + args[i]);\r\n                System.exit(1);\r\n            }\r\n        }\r\n\r\n        String code = generateRandomCode(codeLength, alphabetSize);\r\n        int numGuesses = codeLength + alphabetSize - 2;\r\n\r\n        System.out.printf(\"Welcome to Mastermind!%nWe've generated a secret code containing %d\"\r\n                + \" digits from %d to %d.%nYou have %d attempts to guess this code.%n\", codeLength,\r\n                alphabetSize < 10 ? 1 : 0, alphabetSize < 10 ? alphabetSize : 9, numGuesses);\r\n\r\n        if (hardMode) {\r\n            System.out.println(\"You're playing in HARD mode. Guesses cannot contradict information \"\r\n                    + \"from previous pegs.\");\r\n        }\r\n        System.out.println(); // one extra line break\r\n\r\n        try (Scanner sc = new Scanner(System.in)) {\r\n            play(sc, code, alphabetSize, numGuesses, hardMode);\r\n        }\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/cs2110/Mastermind.java b/src/cs2110/Mastermind.java
+--- a/src/cs2110/Mastermind.java	(revision 09d8f5e614e01d6948aaff4dc9bc9306bc749862)
++++ b/src/cs2110/Mastermind.java	(date 1788125345885)
+@@ -7,7 +7,6 @@
+  * A console-based implementation of the popular Mastermind code-breaking game.
+  */
+ public class Mastermind {
+-
+     /**
+      * Returns `false` and prints an explanatory message if the given `guess` is not valid,
+      * otherwise returns `true`. A guess is not valid if (1) it contains a number of symbols
+@@ -18,11 +17,11 @@
+      * first illegal symbol. Both messages should end with a newline.
+      */
+     static boolean isValidGuess(String guess, int codeLength, int alphabetSize) {
+-        assert guess != null; // defensive programming for implicit non-null pre-condition
+-
+-        // TODO 1: Implement this method according to its specifications.
+-        throw new UnsupportedOperationException();
++        if (guess.length() != codeLength)
++        {
++            System.out.println("Your guess must have " + codeLength + " symbols. Try again.");
+     }
++        for (int i = 0; i < codeLength;  )
+ 
+     /**
+      * Returns an `int[2]` array where the value at index 0 is the number of red pegs assigned to
+Index: .idea/vcs.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/vcs.xml b/.idea/vcs.xml
+new file mode 100644
+--- /dev/null	(date 1788122865948)
++++ b/.idea/vcs.xml	(date 1788122865948)
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="VcsDirectoryMappings">
++    <mapping directory="" vcs="Git" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1788123044856)
++++ b/.idea/compiler.xml	(date 1788123044856)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <option name="DEFAULT_COMPILER" value="Eclipse" />
++    <bytecodeTargetLevel target="21" />
++  </component>
++</project>
+\ No newline at end of file
