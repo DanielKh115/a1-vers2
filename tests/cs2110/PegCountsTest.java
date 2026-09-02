@@ -20,7 +20,9 @@ public class PegCountsTest {
     @Test
     void testNoPegs() {
         assertArrayEquals(new int[]{0, 0}, Mastermind.pegCounts("1234", "5566"));
+        assertArrayEquals(new int[]{0, 0}, Mastermind.pegCounts("121256", "343434"));
     }
+
 
     @DisplayName("WHEN the guess shares one symbol in the same position with the code and disagrees "
             + "on all other symbols, THEN the returned array should have 1 at index 0 (one red peg) "
@@ -38,8 +40,17 @@ public class PegCountsTest {
     @Test
     void testAllColors() {
         assertArrayEquals(new int[]{1, 1}, Mastermind.pegCounts("1234", "1562"));
+        assertArrayEquals(new int[]{1, 1}, Mastermind.pegCounts("1134", "1561"));
     }
 
-        // TODO 4: Add additional test cases to cover the specifications of the `pegCounts()`
-        //  method. All of your tests should include descriptive @DisplayNames and method names.
+    @DisplayName("WHEN the guess has more copies of a character than there are in the code, THEN "
+            + "the number of white pegs given is limited by the number of copies of the "
+            + "character in the code")
+    @Test
+    void testTooManyWhitePegs() {
+        assertArrayEquals(new int[]{0, 2}, Mastermind.pegCounts("111166", "453211"));
+        assertArrayEquals(new int[]{0, 3}, Mastermind.pegCounts("111122", "453211"));
+        assertArrayEquals(new int[]{0, 4}, Mastermind.pegCounts("111222", "226116"));
+    }
+
 }
