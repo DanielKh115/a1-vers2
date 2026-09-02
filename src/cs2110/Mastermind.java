@@ -17,13 +17,14 @@ public class Mastermind {
      * first illegal symbol. Both messages should end with a newline.
      */
     static boolean isValidGuess(String guess, int codeLength, int alphabetSize) {
-        if (guess.length() != codeLength)
-        {
+        if (guess.length() != codeLength) {
             System.out.println("Your guess must have " + codeLength + " symbols. Try again.");
-    }
-        for (int i = 0; i < codeLength;  i++){
+        }
+        for (int i = 0; i < codeLength; i++) {
 
         }
+        return true;
+    }
    /**
      * Returns an `int[2]` array where the value at index 0 is the number of red pegs assigned to
      * the guess and the value at index 1 is the number of white pegs assigned to the guess. Each
@@ -36,8 +37,34 @@ public class Mastermind {
         assert guess != null;
         assert code != null;
 
-        // TODO 3: Implement this method according to its specifications.
-        throw new UnsupportedOperationException();
+        int[] pegCounts = new int[2];
+        boolean[] takenIndicesCode = new boolean[code.length()];
+        boolean[] takenIndicesGuess = new boolean[code.length()];
+
+        //count red and white pegs
+        /**
+         * Compares each code index with each guess index. If the characters match, then
+         * those indices are marked as "taken" and will be ignored by subsequent comparisons.
+         * If the characters match and the indices are not taken, then the color of the peg
+         * to be assigned is determined by whether or not the indices match.
+         */
+        for (int i=0; i<code.length(); i++) {
+            for (int j=0; j<code.length(); j++) {
+                if ( !(takenIndicesCode[i] | takenIndicesGuess[j]) ) { //neither index taken
+                    if (guess.charAt(i)==code.charAt(j)) {
+                        takenIndicesCode[i] = true;
+                        takenIndicesGuess[j] = true;
+                        if (i==j) {
+                            pegCounts[0]++; //increments red pegs
+                        } else {
+                            pegCounts[1]++; //increments white pegs
+                        }
+                    }
+                }
+            }
+        }
+
+        return pegCounts;
     }
 
     /**
