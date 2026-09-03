@@ -19,13 +19,23 @@ public class Mastermind {
     static boolean isValidGuess(String guess, int codeLength, int alphabetSize) {
         if (guess.length() != codeLength) {
             System.out.println("Your guess must have " + codeLength + " symbols. Try again.");
+            return false;
         }
-        for (int i = 0; i < codeLength; i++) {
-
+        int firstnum = 49;
+        if (alphabetSize == 10){
+            firstnum = 48;
+        }
+        for (int i = 0; i < guess.length(); i++){
+            char letter = guess.charAt(i);
+            if (letter > (alphabetSize+48) || letter < firstnum){
+                System.out.println("Your guess cannot include the symbol '" + letter + "'. Try again.");
+                return false;
+            }
         }
         return true;
     }
-   /**
+
+    /**
      * Returns an `int[2]` array where the value at index 0 is the number of red pegs assigned to
      * the guess and the value at index 1 is the number of white pegs assigned to the guess. Each
      * red peg corresponds to a symbol in the guess that matches the symbol in the same position of
