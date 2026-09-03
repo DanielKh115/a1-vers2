@@ -5,10 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="f64c743e-d092-4493-9937-8b000d0f49ae" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_30_2026_5_30_PM_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_8_30_2026_5_30_PM__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/amogusTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/commitTest.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cs2110.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/metadata.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/cs2110/Mastermind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/cs2110/Mastermind.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/cs2110/PegCountsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/cs2110/PegCountsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/cs2110/HardModeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/cs2110/IsValidGuessTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/cs2110/PlayTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,9 +50,6 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "JUnit.IsValidGuessTest.executor": "Run",
-    "JUnit.PegCountsTest.executor": "Debug",
-    "JUnit.PegCountsTest.testNoPegs.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
@@ -53,70 +59,14 @@
     "git-widget-placeholder": "origin2",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/daniel/Documents/javaCode/a1-vers2",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "reference.projectsettings.compiler.javacompiler"
+    "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
-  <component name="RunManager" selected="JUnit.PegCountsTest">
-    <configuration name="IsValidGuessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cs2110" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs2110.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs2110" />
-      <option name="MAIN_CLASS_NAME" value="cs2110.IsValidGuessTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PegCountsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cs2110" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs2110.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs2110" />
-      <option name="MAIN_CLASS_NAME" value="cs2110.PegCountsTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PegCountsTest.testNoPegs" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="cs2110" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="cs2110.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="cs2110" />
-      <option name="MAIN_CLASS_NAME" value="cs2110.PegCountsTest" />
-      <option name="METHOD_NAME" value="testNoPegs" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.PegCountsTest" />
-        <item itemvalue="JUnit.IsValidGuessTest" />
-        <item itemvalue="JUnit.PegCountsTest.testNoPegs" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -137,17 +87,6 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
