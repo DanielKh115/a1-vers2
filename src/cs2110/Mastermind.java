@@ -111,7 +111,15 @@ public class Mastermind {
         // TODO 6: Modify the definition of this method to account for the case that `hardMode` is
         //  `true`. Your definition should promote maintainability by avoiding duplicate code and
         //  delegating involved computations to at least one helper method.
-        throw new UnsupportedOperationException();
+        if (hardMode == True) && (i != 0):
+            while (pegCounts(new_guess, guess[i-1]) != pegsSet[i]) { // i is index, new_guess is the newest guess added
+                System.out.println(
+                        "Your guess conflicts with information from the guess " + guess[i - 1]
+                                + ". Try again.");
+
+                Scanner new_guess = new Scanner(System.in)
+                //Here just copy the same code from the Enter a Guess code and it should work?
+            }
     }
 
     /**
